@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Infinity&apos;s WallPaper test page</title>
+  <link rel="stylesheet" href="../../asset/style.css" />
+  <link rel="stylesheet" href="./style.css" />
+  <script defer src="../../asset/script.js"></script>
+  <permission type="camera" />
+</head>
+
+<body>
+  <div class="content">
+    <svg class="bg" preserveAspectRatio="none" viewBox="0 0 480 360" version="1.1" xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink">
+      <defs>
+        <linearGradient id="rainbow-linear" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#f00" />
+          <stop offset="0.167" stop-color="#ff0" />
+          <stop offset="0.333" stop-color="#0f0" />
+          <stop offset="0.5" stop-color="#0ff" />
+          <stop offset="0.667" stop-color="#00f" />
+          <stop offset="0.833" stop-color="#f0f" />
+          <stop offset="1" stop-color="#f00" />
+        </linearGradient>
+        <linearGradient id="white-light" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#fff" stop-opacity="0.7" />
+          <stop offset="1" stop-color="#fff" stop-opacity="0" />
+        </linearGradient>
+      </defs>
+      <path d="M0,160v200h240z" fill="url(#white-light)" stroke="none" />
+      <path d="M0,160v200h240z" fill="url(#rainbow-linear)" fill-opacity="0.15" stroke="none" />
+      <path d="M0,200v160h240z" fill="#333" stroke="none" />
+      <path d="M240,0h240v140z" fill="#444" stroke="none" />
+      <path d="M240,0h240v120z" fill="#222" stroke="none" />
+    </svg>
+    <img class="center-logo" src="./img/The-Infinitys.svg" alt="">
+    <img class="inf-sign" src="./img/inf-sign.svg" alt="">
+  </div>
+</body>
+
+</html>

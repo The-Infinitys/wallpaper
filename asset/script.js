@@ -18,7 +18,7 @@ maximize_button.addEventListener("click", () => {
 document.body.addEventListener("fullscreenchange", () => {
   if (document.fullscreenElement == null) {
     const content = document.querySelector("div.content");
-    content.style = `width:auto;height:95vh;aspect-ratio:${aspect_ratio.toString()};opacity:1;`;
+    content.style = `width:auto;height:90vh;aspect-ratio:${aspect_ratio.toString()};opacity:1;`;
   }
 });
 document.body.append(maximize_button);
