@@ -50,12 +50,12 @@
     <defs>
       <style>
         ellipse {
-          stroke-width: 1.4;
+          stroke-width: 1.7;
         }
       </style>
     </defs>
-    <ellipse cx="30.3" cy="50" rx="19.7" ry="12" id="Infinity1" fill="none" />
-    <ellipse cx="69.7" cy="50" rx="19.7" ry="12" id="Infinity2" fill="none" />
+    <ellipse cx="30.3" cy="50" rx="19.7" ry="14" id="Infinity1" fill="none" />
+    <ellipse cx="69.7" cy="50" rx="19.7" ry="14" id="Infinity2" fill="none" />
   </g>
   <g class="rainbow-circle">
     <defs>
