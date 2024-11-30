@@ -5,8 +5,34 @@ svg.bg {
   left: 0;
 }
 
-div.content {
+@media (prefers-color-scheme: dark) {
+
+  div.content>div.dark {
+    visibility: visible;
+  }
+
+  div.content>div.light {
+    visibility: hidden;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+
+  div.content>div.dark {
+    visibility: hidden;
+  }
+
+  div.content>div.light {
+    visibility: visible;
+  }
+}
+
+div.content>div.dark {
   background: radial-gradient(circle at top left, #555 0%, #000 70%);
+}
+
+div.content>div.light {
+  background: radial-gradient(circle at top left, #aaa 0%, #fff 70%);
 }
 
 img.center-logo {

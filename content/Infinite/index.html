@@ -13,33 +13,64 @@
 
 <body>
   <div class="content">
-    <svg class="bg" preserveAspectRatio="none" viewBox="0 0 480 360" version="1.1" xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink">
-      <defs>
-        <linearGradient id="rainbow-linear" x1="0" y1="0" x2="1" y2="0" spreadMethod="repeat">
-          <animate attributeName="x1" dur="10s" from="-100%" to="100%" repeatCount="indefinite" />
-          <animate attributeName="x2" dur="10s" from="0%" to="200%" repeatCount="indefinite" />
-          <stop offset="0" stop-color="#f00" />
-          <stop offset="0.167" stop-color="#ff0" />
-          <stop offset="0.333" stop-color="#0f0" />
-          <stop offset="0.5" stop-color="#0ff" />
-          <stop offset="0.667" stop-color="#00f" />
-          <stop offset="0.833" stop-color="#f0f" />
-          <stop offset="1" stop-color="#f00" />
-        </linearGradient>
-        <linearGradient id="white-light" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#fff" stop-opacity="0.7" />
-          <stop offset="1" stop-color="#fff" stop-opacity="0" />
-        </linearGradient>
-      </defs>
-      <path d="M0,200v160h240z" fill="url(#white-light)" stroke="none" />
-      <path d="M0,200v160h240z" fill="url(#rainbow-linear)" fill-opacity="0.15" stroke="none" />
-      <path d="M0,220v140h240z" fill="#333" stroke="none" />
-      <path d="M200,0h280v140z" fill="#444" stroke="none" />
-      <path d="M200,0h280v120z" fill="#222" stroke="none" />
-    </svg>
-    <img class="center-logo" src="./img/The-Infinitys.svg" alt="">
-    <img class="inf-sign" src="./img/inf-sign.svg" alt="">
+    <div class="dark">
+      <svg class="bg" preserveAspectRatio="none" viewBox="0 0 480 360" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+          <linearGradient id="rainbow-linear" x1="0" y1="0" x2="1" y2="0" spreadMethod="repeat">
+            <animate attributeName="x1" dur="10s" from="-100%" to="100%" repeatCount="indefinite" />
+            <animate attributeName="x2" dur="10s" from="0%" to="200%" repeatCount="indefinite" />
+            <stop offset="0" stop-color="#f00" />
+            <stop offset="0.167" stop-color="#ff0" />
+            <stop offset="0.333" stop-color="#0f0" />
+            <stop offset="0.5" stop-color="#0ff" />
+            <stop offset="0.667" stop-color="#00f" />
+            <stop offset="0.833" stop-color="#f0f" />
+            <stop offset="1" stop-color="#f00" />
+          </linearGradient>
+          <linearGradient id="white-light" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#fff" stop-opacity="0.7" />
+            <stop offset="1" stop-color="#fff" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+        <path d="M0,200v160h240z" fill="url(#white-light)" stroke="none" />
+        <path d="M0,200v160h240z" fill="url(#rainbow-linear)" fill-opacity="0.15" stroke="none" />
+        <path d="M0,220v140h240z" fill="#333" stroke="none" />
+        <path d="M200,0h280v140z" fill="#444" stroke="none" />
+        <path d="M200,0h280v120z" fill="#222" stroke="none" />
+      </svg>
+      <img class="center-logo" src="./img/The-Infinitys.svg" alt="">
+      <img class="inf-sign" src="./img/inf-sign-dark.svg" alt="">
+    </div>
+    <div class="light">
+      <svg class="bg" preserveAspectRatio="none" viewBox="0 0 480 360" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+          <linearGradient id="rainbow-linear" x1="0" y1="0" x2="1" y2="0" spreadMethod="repeat">
+            <animate attributeName="x1" dur="10s" from="-100%" to="100%" repeatCount="indefinite" />
+            <animate attributeName="x2" dur="10s" from="0%" to="200%" repeatCount="indefinite" />
+            <stop offset="0" stop-color="#f00" />
+            <stop offset="0.167" stop-color="#ff0" />
+            <stop offset="0.333" stop-color="#0f0" />
+            <stop offset="0.5" stop-color="#0ff" />
+            <stop offset="0.667" stop-color="#00f" />
+            <stop offset="0.833" stop-color="#f0f" />
+            <stop offset="1" stop-color="#f00" />
+          </linearGradient>
+          <linearGradient id="black-dark" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#000" stop-opacity="0.7" />
+            <stop offset="1" stop-color="#000" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+        <path d="M0,200v160h240z" fill="url(#black-dark)" stroke="none" />
+        <path d="M0,200v160h240z" fill="url(#rainbow-linear)" fill-opacity="0.15" stroke="none" />
+        <path d="M0,220v140h240z" fill="#ccc" stroke="none" />
+        <path d="M200,0h280v140z" fill="#bbb" stroke="none" />
+        <path d="M200,0h280v120z" fill="#ddd" stroke="none" />
+      </svg>
+      <img class="center-logo" src="./img/The-Infinitys.svg" alt="">
+      <img class="inf-sign" src="./img/inf-sign-light.svg" alt="">
+    </div>
   </div>
 </body>
 
