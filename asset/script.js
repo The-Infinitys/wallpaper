@@ -31,7 +31,7 @@ if (params.has("embed")) {
   document.body.addEventListener("fullscreenchange", () => {
     if (document.fullscreenElement == null) {
       const content = document.querySelector("div.content");
-      if (innerWidth/innerHeight>aspect_ratio)){
+      if (innerWidth/innerHeight>aspect_ratio){
         content.style = `width:auto;height:100%;aspect-ratio:${aspect_ratio};opacity:1;`;
       }else{
         content.style = `width:100%;height:auto;aspect-ratio:${aspect_ratio};opacity:1;`;
