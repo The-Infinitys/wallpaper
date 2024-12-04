@@ -55,3 +55,19 @@ div.content>div.light {
 div.content * {
   position: absolute;
 }
+
+.left {
+  left: 0%;
+}
+
+.right {
+  right: 0%;
+}
+
+.top {
+  top: 0%;
+}
+
+.bottom {
+  bottom: 0%;
+}

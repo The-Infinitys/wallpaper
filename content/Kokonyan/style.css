@@ -1,0 +1,13 @@
+:root {
+  --bg-color: #383856;
+  --front-color: #48487A;
+}
+
+div.content {
+  background-color: var(--bg-color);
+  color: var(--front-color);
+}
+div.content>svg[name="left-top-lines"]{
+  width:50%;
+  height:auto;
+}
