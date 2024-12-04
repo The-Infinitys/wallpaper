@@ -7,7 +7,18 @@ div.content {
   background-color: var(--bg-color);
   color: var(--front-color);
 }
-div.content>svg[name="left-top-lines"]{
-  width:50%;
-  height:auto;
+
+div.content>svg[name="left-top-lines"] {
+  width: auto;
+  height: 50%;
+}
+
+img.bubble {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  transform: translate(-50%, -50%);
+  height: auto;
+  aspect-ratio: 1/1;
 }

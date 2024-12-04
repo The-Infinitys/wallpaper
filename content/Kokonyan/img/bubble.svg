@@ -1,0 +1,29 @@
+<svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient id="rainbow-linear" x1="0" y1="0" x2="1" y2="0" spreadMethod="repeat">
+      <animate attributeName="x1" dur="10s" from="-100%" to="100%" repeatCount="indefinite" />
+      <animate attributeName="x2" dur="10s" from="0%" to="200%" repeatCount="indefinite" />
+      <stop offset="0" stop-color="#f00" />
+      <stop offset="0.167" stop-color="#ff0" />
+      <stop offset="0.333" stop-color="#0f0" />
+      <stop offset="0.5" stop-color="#0ff" />
+      <stop offset="0.667" stop-color="#00f" />
+      <stop offset="0.833" stop-color="#f0f" />
+      <stop offset="1" stop-color="#f00" />
+    </linearGradient>
+  </defs>
+  <path d="M5,50
+  a 45, 45, 0, 0, 0, 90, 0
+  a 45, 45, 0, 0, 0, -90, 0
+  z
+  M50,10
+  a 5, 5, 0, 0, 0, 0, 10
+  a 30, 30, 0, 0, 1, 30, 30
+  a 5, 5, 0, 0, 0, 10, 0
+  a 40, 40, 0, 0, 0, -40, -40
+  z
+  M35,13
+  a 5, 5, 0, 0, 0, 0, 10
+  a 5, 5, 0, 0, 0, 0, -10
+  " fill="url(#rainbow-linear)" fill-opacity="0.1" stroke="#48487A" stroke-width="2" />
+</svg>
