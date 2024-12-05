@@ -4,13 +4,18 @@ const create_bubble = () => {
   bubble_element.src = "./img/bubble.svg";
   bubble_element.className = "bubble";
   bubble_element.alt = "";
-  bubble_element.style.top = "50%";
-  bubble_element.style.left = "50%";
-  bg_elem.appendChild(bubble);
-  setTimeout(() => {
-    bubble_element.remove();
-  }, 1000);
+  bubble_element.style.bottom = "0%";
+  bubble_element.style.left = "0%";
+  bg_elem.appendChild(bubble_element);
+  let count=0;
+  setInterval(() => {
+    count++;
+    bubble_element.style.bottom = (count/10).toString() + "%";
+    bubble_element.style.left = (count).toString() + "%";
+  }, 10);
 };
-setInterval(() => {
-  create_bubble();
-}, 1000);
+for (let i = 0; i < 10; ++i) {
+  setTimeout(() => {
+    create_bubble();
+  }, 1000 * i);
+}

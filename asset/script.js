@@ -12,6 +12,7 @@ if (params.has("embed")) {
   if (params.has("ratio")) {
     set_ratio(parseFloat(params.get("ratio")));
   } else {
+    const content = document.querySelector("div.content");
     content.style = `width:100%;height:100%;opacity:1;`;
   }
 } else {

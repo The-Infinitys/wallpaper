@@ -22,3 +22,11 @@ img.bubble {
   height: auto;
   aspect-ratio: 1/1;
 }
+
+img.inf-sign {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: min(calc(100% - 20px), 300px);
+  aspect-ratio: auto;
+}
