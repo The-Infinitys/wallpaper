@@ -1,14 +1,17 @@
 let pixel_width, pixel_height, aspect_ratio;
 let params = new URLSearchParams(document.location.search);
-if (params.has("embed")) {
+const set_ratio = (ratio) => {
   const content = document.querySelector("div.content");
-  if (params.has("ratio")){
-    if (innerWidth/innerHeight>parseFloat(params.get("ratio"))){
-      content.style = `width:auto;height:100%;aspect-ratio:${params.get("ratio")};opacity:1;`;
-    }else{
-      content.style = `width:100%;height:auto;aspect-ratio:${params.get("ratio")};opacity:1;`;
-    }
-  }else{
+  if (innerWidth / innerHeight > ratio) {
+    content.style = `width:auto;height:100%;aspect-ratio:${ratio.toString()};opacity:1;`;
+  } else {
+    content.style = `width:100%;height:auto;aspect-ratio:${ratio.toString()};opacity:1;`;
+  }
+};
+if (params.has("embed")) {
+  if (params.has("ratio")) {
+    set_ratio(parseFloat(params.get("ratio")));
+  } else {
     content.style = `width:100%;height:100%;opacity:1;`;
   }
 } else {
@@ -30,12 +33,9 @@ if (params.has("embed")) {
   });
   document.body.addEventListener("fullscreenchange", () => {
     if (document.fullscreenElement == null) {
-      const content = document.querySelector("div.content");
-      if (innerWidth/innerHeight>aspect_ratio){
-        content.style = `width:auto;height:100%;aspect-ratio:${aspect_ratio.toString()};opacity:1;`;
-      }else{
-        content.style = `width:100%;height:auto;aspect-ratio:${aspect_ratio.toString()};opacity:1;`;
-      }
+      setTimeout(() => {
+        set_ratio(aspect_ratio);
+      }, 1000);
     }
   });
   document.body.append(maximize_button);
