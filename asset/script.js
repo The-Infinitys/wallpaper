@@ -32,9 +32,9 @@ if (params.has("embed")) {
     if (document.fullscreenElement == null) {
       const content = document.querySelector("div.content");
       if (innerWidth/innerHeight>aspect_ratio){
-        content.style = `width:auto;height:100%;aspect-ratio:${aspect_ratio};opacity:1;`;
+        content.style = `width:auto;height:100%;aspect-ratio:${aspect_ratio.toString()};opacity:1;`;
       }else{
-        content.style = `width:100%;height:auto;aspect-ratio:${aspect_ratio};opacity:1;`;
+        content.style = `width:100%;height:auto;aspect-ratio:${aspect_ratio.toString()};opacity:1;`;
       }
     }
   });
