@@ -8,7 +8,8 @@ div.content {
   color: var(--front-color);
 }
 
-div.content>svg[name="left-top-lines"] {
+div.content>svg[name="left-top-lines"],
+div.content>svg[name="right-bottom-lines"] {
   width: auto;
   height: 50%;
 }
