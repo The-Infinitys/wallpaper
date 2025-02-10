@@ -1,13 +1,31 @@
+
 :root {
   --txt-size: calc(2 / 3 * min(20vw, 200px));
 }
+
+@media (prefers-color-scheme: light) {
+  :root{
+    --firts-color:#fdd;
+    --second-color: #f66;
+    --third-color:#a33;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root{
+    --firts-color:#222;
+    --second-color: #555;
+    --third-color:#bbb;
+  }
+}
+
 
 div.content {
   background-image: url("./img/repeaten-stripe.svg");
   background-size: 50px;
   background-position: 0 0;
   background-repeat: repeat;
-  background-color:#fdd;
+  background-color:var(--firts-color);
 }
 
 img.happy-valentines-day {
