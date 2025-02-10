@@ -1,0 +1,41 @@
+:root {
+  --txt-size: calc(2 / 3 * min(20vw, 200px));
+}
+
+div.content {
+  background-image: url("./img/repeaten-stripe.svg");
+  background-size: 50px;
+  background-position: 0 0;
+  background-repeat: repeat;
+  background-color:#fdd;
+}
+
+img.happy-valentines-day {
+  position: absolute;
+  transform: rotate(-30deg);
+  height: var(--txt-size);
+}
+
+img.chocolate {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: auto;
+  height: calc(var(--txt-size) * 3);
+}
+
+img.chocolate.shadow {
+  top: calc(2px + 0.1 * var(--txt-size));
+  left: calc(2px + 0.1 * var(--txt-size));
+  filter: brightness(0.2);
+}
+
+img#happy-txt {
+  bottom: calc(var(--txt-size));
+  right: calc(var(--txt-size));
+}
+
+img#valentine-txt {
+  bottom: calc(0.6 * var(--txt-size));
+  right: calc(-0.6 * var(--txt-size));
+}

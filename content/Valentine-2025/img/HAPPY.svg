@@ -1,0 +1,26 @@
+<svg viewBox="0 0 330 150" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="
+  M 0,0
+  m 30,0
+  l -20,100
+  h 10
+  l 9,-45
+  h 30
+  l -9,45
+  h 10
+  l 20,-100
+  h-10
+  l -9,45
+  h -30
+  l 9,-45
+  z
+  M 55,0
+  m 30,0   m 25,0   l -45,100   h 10   l 13.5,-30   h 15   l 1.5,30   h 10   l -5,-100   z   m -6,30    l -13,30   h 14   l -1,-30   z
+  M 110,0
+  m 30,0   l -20,100   h 10   l 10,-50   h 30   l 12,-10   l 6,-30   l -8,-10   z   m 8,10   h 25   l 4,5   l -4,20   l -6,5   h -25   z
+  M 165,0
+  m 30,0   l -20,100   h 10   l 10,-50   h 30   l 12,-10   l 6,-30   l -8,-10   z   m 8,10   h 25   l 4,5   l -4,20   l -6,5   h -25   z
+  M 215,0
+  m 30,0   l 10,50   l -10,50   h 10   l 10,-50   l 30,-50   h -10   l -22.5,37.5   l -7.5,-37.5   z
+  " fill-rule="evenodd" fill="#ffffff" stroke="none" />
+</svg>
