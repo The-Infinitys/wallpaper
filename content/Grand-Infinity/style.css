@@ -14,7 +14,7 @@ div.content {
 }
 
 #infinite-logo {
-  width: min(500px, 75vw);
+  width: min(256px, 75vw);
   height: auto;
   top: min(2vmin, 50px);
   right: min(1vmin, 25px);
