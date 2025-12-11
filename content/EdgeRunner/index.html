@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="../../asset/style.css" />
     <link rel="stylesheet" href="./style.css" />
     <script defer src="../../asset/script.js"></script>
-    <script defer src="./script.js"></script>
+    <script defer src="./scripts/edge.js"></script>
+    <script defer src="./scripts/runner.js"></script>
     <permission type="camera" />
   </head>
 
@@ -27,58 +28,59 @@
           <linearGradient id="lt" x1="0" y1="1" x2="1" y2="0">
             <stop offset="0" stop-color="var(--bg)" stop-opacity="1" />
             <stop offset="0.5" stop-color="var(--bg)" stop-opacity="1" />
-            <stop offset="1" stop-color="var(--bg)" stop-opacity="0" />
+            <stop offset="0.8" stop-color="var(--bg)" stop-opacity="0" />
           </linearGradient>
 
           <linearGradient id="lb" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0" stop-color="var(--bg)" stop-opacity="1" />
             <stop offset="0.5" stop-color="var(--bg)" stop-opacity="1" />
-            <stop offset="1" stop-color="var(--bg)" stop-opacity="0" />
+            <stop offset="0.8" stop-color="var(--bg)" stop-opacity="0" />
           </linearGradient>
 
           <linearGradient id="rt" x1="1" y1="1" x2="0" y2="0">
             <stop offset="0" stop-color="var(--bg)" stop-opacity="1" />
             <stop offset="0.5" stop-color="var(--bg)" stop-opacity="1" />
-            <stop offset="1" stop-color="var(--bg)" stop-opacity="0" />
+            <stop offset="0.8" stop-color="var(--bg)" stop-opacity="0" />
           </linearGradient>
 
           <linearGradient id="rb" x1="1" y1="0" x2="0" y2="1">
             <stop offset="0" stop-color="var(--bg)" stop-opacity="1" />
             <stop offset="0.5" stop-color="var(--bg)" stop-opacity="1" />
-            <stop offset="1" stop-color="var(--bg)" stop-opacity="0" />
+            <stop offset="0.8" stop-color="var(--bg)" stop-opacity="0" />
           </linearGradient>
         </defs>
         <rect
-          x="75"
+          x="65"
           y="0"
-          width="25"
-          height="40"
+          width="35"
+          height="45"
           style="stroke: none; fill: url(#lt)"
         />
         <rect
           x="0"
           y="0"
-          width="50"
-          height="50"
+          width="60"
+          height="60"
           style="stroke: none; fill: url(#rt)"
         />
         <rect
           x="0"
-          y="80"
-          width="20"
-          height="20"
+          y="70"
+          width="30"
+          height="30"
           style="stroke: none; fill: url(#rb)"
         />
         <rect
-          x="60"
-          y="60"
-          width="40"
-          height="40"
+          x="50"
+          y="55"
+          width="50"
+          height="45"
           style="stroke: none; fill: url(#lb)"
         />
       </svg>
       <div class="light"></div>
       <div class="dark"></div>
+      <canvas id="linear" class="bg"></canvas>
     </div>
   </body>
 </html>
