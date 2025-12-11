@@ -107,7 +107,7 @@ function drawHoneycombOnCanvas(canvasId) {
     // ハニカム描画関数
     const drawHoneycomb = (x, y) => {
       ctx.globalCompositeOperation = "destination-out";
-      ctx.lineWidth = 1.5;
+      ctx.lineWidth = window.devicePixelRatio;
       ctx.beginPath();
       ctx.moveTo(x, y - r);
       ctx.lineTo(x + (root3 / 2) * r, y - r / 2);
