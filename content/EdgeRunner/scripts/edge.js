@@ -5,17 +5,17 @@
 // これらの変数が、斜めの境界がX軸/Y軸のどこから始まるかを定義します。
 // 例: top_x_start = 0.2, left_y_start = 0.8 の場合、
 //     X軸の20%の位置とY軸の80%の位置を結ぶ直線が左上隅の境界線になります。
-const top_x_start = 0.5; // 左上隅の境界線がX軸と交わる位置 (左から)
-const top_x_end = 0.25; // 右上隅の境界線がX軸と交わる位置 (右から)
+const top_x_start = 0.6; // 左上隅の境界線がX軸と交わる位置 (左から)
+const top_x_end = 0.35; // 右上隅の境界線がX軸と交わる位置 (右から)
 
-const bottom_x_start = 0.2; // 左下隅の境界線がX軸と交わる位置 (左から)
-const bottom_x_end = 0.3; // 右下隅の境界線がX軸と交わる位置 (右から)
+const bottom_x_start = 0.3; // 左下隅の境界線がX軸と交わる位置 (左から)
+const bottom_x_end = 0.4; // 右下隅の境界線がX軸と交わる位置 (右から)
 
-const left_y_start = 0.5; // 左上隅の境界線がY軸と交わる位置 (上から)
-const left_y_end = 0.2; // 左下隅の境界線がY軸と交わる位置 (下から)
+const left_y_start = 0.6; // 左上隅の境界線がY軸と交わる位置 (上から)
+const left_y_end = 0.3; // 左下隅の境界線がY軸と交わる位置 (下から)
 
-const right_y_start = 0.4; // 右上隅の境界線がY軸と交わる位置 (上から)
-const right_y_end = 0.4; // 右下隅の境界線がY軸と交わる位置 (下から)
+const right_y_start = 0.45; // 右上隅の境界線がY軸と交わる位置 (上から)
+const right_y_end = 0.45; // 右下隅の境界線がY軸と交わる位置 (下から)
 
 const expanded = 1;
 
