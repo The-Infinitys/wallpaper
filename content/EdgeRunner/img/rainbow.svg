@@ -14,6 +14,20 @@
       y2="1"
       spreadMethod="repeat"
     >
+      <animate
+        attributeName="x1"
+        dur="4s"
+        from="-100%"
+        to="100%"
+        repeatCount="indefinite"
+      />
+      <animate
+        attributeName="x2"
+        dur="4s"
+        from="0%"
+        to="200%"
+        repeatCount="indefinite"
+      />
       <stop offset="0" stop-color="#f00" />
       <stop offset="0.167" stop-color="#ff0" />
       <stop offset="0.333" stop-color="#0f0" />

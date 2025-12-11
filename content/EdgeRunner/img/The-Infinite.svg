@@ -1,15 +1,40 @@
 <svg
-   viewBox="0 0 120 120" version="1.1"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink">
+  viewBox="0 0 120 120"
+  version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+>
   <defs>
-   <linearGradient id="grand"
-    x1="0" y1="0"
-    x2="1" y2="0"
-    spreadMethod="">
-    <stop offset="0" stop-color="#5555ff" stop-opacity="1"/>
-    <stop offset="1" stop-color="#ff55ff" stop-opacity="1"/>
-   </linearGradient> 
+    <linearGradient
+      id="rainbow"
+      x1="0"
+      y1="0"
+      x2="2"
+      y2="0"
+      spreadMethod="repeat"
+    >
+      <animate
+        attributeName="x1"
+        dur="10s"
+        from="-100%"
+        to="600%"
+        repeatCount="indefinite"
+      />
+      <animate
+        attributeName="x2"
+        dur="10s"
+        from="600%"
+        to="1300%"
+        repeatCount="indefinite"
+      />
+      <stop offset="0" stop-color="#f00" />
+      <stop offset="0.167" stop-color="#ff0" />
+      <stop offset="0.333" stop-color="#0f0" />
+      <stop offset="0.5" stop-color="#0ff" />
+      <stop offset="0.667" stop-color="#00f" />
+      <stop offset="0.833" stop-color="#f0f" />
+      <stop offset="1" stop-color="#f00" />
+    </linearGradient>
   </defs>
   <path
     d="
@@ -26,7 +51,8 @@
     z
     "
     fill="none"
-    stroke="url(#grand)"
-    stroke-width="10"
-  />
+    stroke="url(#rainbow)"
+    stroke-width="1"
+  >
+  </path>
 </svg>
