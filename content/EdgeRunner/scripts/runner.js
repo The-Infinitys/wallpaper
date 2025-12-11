@@ -108,7 +108,7 @@ function animate() {
 }
 
 function main() {
-  setInterval(animate, 100);
+  setInterval(animate, 1000);
 }
 window.addEventListener("load", (_) => {
   main();

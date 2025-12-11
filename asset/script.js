@@ -1,4 +1,6 @@
-let pixel_width, pixel_height, aspect_ratio;
+let pixel_width = null;
+let pixel_height = null;
+let aspect_ratio = null;
 let params = new URLSearchParams(document.location.search);
 const set_ratio = (ratio) => {
   const content = document.querySelector("div.content");

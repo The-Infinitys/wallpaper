@@ -84,8 +84,14 @@ function drawHoneycombOnCanvas(canvasId) {
     const backColor = computedStyle.getPropertyValue("--back-color").trim();
 
     // Canvasサイズをウィンドウに合わせる (devicePixelRatio考慮)
-    canvas.width = window.devicePixelRatio * window.innerWidth;
-    canvas.height = window.devicePixelRatio * window.innerHeight;
+    canvas.width =
+      pixel_width != null
+        ? pixel_width
+        : window.devicePixelRatio * window.innerWidth;
+    canvas.height =
+      pixel_height != null
+        ? pixel_height
+        : window.devicePixelRatio * window.innerHeight;
 
     // 背景を --back-color で塗りつぶす
     ctx.fillStyle = backColor;
@@ -145,7 +151,6 @@ function drawHoneycombOnCanvas(canvasId) {
 
   // 初回描画
   draw();
-
   // リサイズ時に再描画
   window.addEventListener("resize", draw);
 }
