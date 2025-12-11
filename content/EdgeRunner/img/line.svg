@@ -1,0 +1,39 @@
+<svg
+  preserveAspectRatio="none"
+  viewBox="0 0 100 100"
+  version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+  <defs>
+    <linearGradient
+      id="line"
+      x1="0"
+      y1="0"
+      x2="0"
+      y2="50"
+      gradientUnits="userSpaceOnUse"
+    >
+      <animate
+        attributeName="y1"
+        values="-50;100"
+        dur="4s"
+        repeatCount="indefinite"
+      />
+      <animate
+        attributeName="y2"
+        values="0;150"
+        dur="4s"
+        repeatCount="indefinite"
+      />
+      <stop offset="0" stop-color="#fff" stop-opacity="0" />
+      <stop offset="0.2" stop-color="#fff" stop-opacity="1" />
+      <stop offset="0.9" stop-color="#fff" stop-opacity="1" />
+      <stop offset="1" stop-color="#fff" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+  <path
+    d="M 50 0 L50 100"
+    style="fill: none; stroke: url(#line); stroke-width: 2"
+  />
+</svg>
