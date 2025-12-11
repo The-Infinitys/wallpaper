@@ -13,8 +13,70 @@
 
   <body>
     <div class="content">
-        <img src="./img/rainbow.svg" class="bg" alt="" />
-        <canvas id="honeycomb"></canvas>
+      <img src="./img/rainbow.svg" class="bg" alt="" />
+      <canvas id="honeycomb" class="bg"></canvas>
+      <svg
+        preserveAspectRatio="none"
+        class="bg"
+        viewBox="0 0 100 100"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <defs>
+          <linearGradient id="lt" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0" stop-color="var(--bg)" stop-opacity="1" />
+            <stop offset="0.5" stop-color="var(--bg)" stop-opacity="1" />
+            <stop offset="1" stop-color="var(--bg)" stop-opacity="0" />
+          </linearGradient>
+
+          <linearGradient id="lb" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="var(--bg)" stop-opacity="1" />
+            <stop offset="0.5" stop-color="var(--bg)" stop-opacity="1" />
+            <stop offset="1" stop-color="var(--bg)" stop-opacity="0" />
+          </linearGradient>
+
+          <linearGradient id="rt" x1="1" y1="1" x2="0" y2="0">
+            <stop offset="0" stop-color="var(--bg)" stop-opacity="1" />
+            <stop offset="0.5" stop-color="var(--bg)" stop-opacity="1" />
+            <stop offset="1" stop-color="var(--bg)" stop-opacity="0" />
+          </linearGradient>
+
+          <linearGradient id="rb" x1="1" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="var(--bg)" stop-opacity="1" />
+            <stop offset="0.5" stop-color="var(--bg)" stop-opacity="1" />
+            <stop offset="1" stop-color="var(--bg)" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+        <rect
+          x="75"
+          y="0"
+          width="25"
+          height="40"
+          style="stroke: none; fill: url(#lt)"
+        />
+        <rect
+          x="0"
+          y="0"
+          width="50"
+          height="50"
+          style="stroke: none; fill: url(#rt)"
+        />
+        <rect
+          x="0"
+          y="80"
+          width="20"
+          height="20"
+          style="stroke: none; fill: url(#rb)"
+        />
+        <rect
+          x="60"
+          y="60"
+          width="40"
+          height="40"
+          style="stroke: none; fill: url(#lb)"
+        />
+      </svg>
       <div class="light"></div>
       <div class="dark"></div>
     </div>

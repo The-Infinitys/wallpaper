@@ -5,20 +5,24 @@
 // これらの変数が、斜めの境界がX軸/Y軸のどこから始まるかを定義します。
 // 例: top_x_start = 0.2, left_y_start = 0.8 の場合、
 //     X軸の20%の位置とY軸の80%の位置を結ぶ直線が左上隅の境界線になります。
-const top_x_start = 0.3; // 左上隅の境界線がX軸と交わる位置 (左から)
-const top_x_end = 0.7; // 右上隅の境界線がX軸と交わる位置 (右から)
+const top_x_start = 0.5; // 左上隅の境界線がX軸と交わる位置 (左から)
+const top_x_end = 0.25; // 右上隅の境界線がX軸と交わる位置 (右から)
 
-const bottom_x_start = 0.3; // 左下隅の境界線がX軸と交わる位置 (左から)
-const bottom_x_end = 0.7; // 右下隅の境界線がX軸と交わる位置 (右から)
+const bottom_x_start = 0.2; // 左下隅の境界線がX軸と交わる位置 (左から)
+const bottom_x_end = 0.3; // 右下隅の境界線がX軸と交わる位置 (右から)
 
-const left_y_start = 0.3; // 左上隅の境界線がY軸と交わる位置 (上から)
-const left_y_end = 0.7; // 左下隅の境界線がY軸と交わる位置 (下から)
+const left_y_start = 0.5; // 左上隅の境界線がY軸と交わる位置 (上から)
+const left_y_end = 0.2; // 左下隅の境界線がY軸と交わる位置 (下から)
 
-const right_y_start = 0.3; // 右上隅の境界線がY軸と交わる位置 (上から)
-const right_y_end = 0.7; // 右下隅の境界線がY軸と交わる位置 (下から)
+const right_y_start = 0.4; // 右上隅の境界線がY軸と交わる位置 (上から)
+const right_y_end = 0.4; // 右下隅の境界線がY軸と交わる位置 (下から)
+
+const expanded = 1;
 
 // ハニカム描画機能のみを作成
-function shouldRender(xper, yper) {
+function shouldRender(xp, yp) {
+  let xper = expanded * (xp - 0.5) + 0.5;
+  let yper = expanded * (yp - 0.5) + 0.5;
   // 線の傾きを計算し、描画領域（線の外側）かどうかを判定します。
   // 各隅で、二つの交点 (X軸とY軸) を通る直線の方程式 (y = mx + b) を使用します。
 
@@ -97,7 +101,7 @@ function drawHoneycombOnCanvas(canvasId) {
     // ハニカム描画関数
     const drawHoneycomb = (x, y) => {
       ctx.globalCompositeOperation = "destination-out";
-      ctx.lineWidth = 1;
+      ctx.lineWidth = 1.5;
       ctx.beginPath();
       ctx.moveTo(x, y - r);
       ctx.lineTo(x + (root3 / 2) * r, y - r / 2);
@@ -126,10 +130,14 @@ function drawHoneycombOnCanvas(canvasId) {
         let y = canvas_y * honeycomb_height;
         let xper = x / canvas.width;
         let yper = y / canvas.height;
-        console.log(xper);
-        console.log(yper);
-        if (shouldRender(xper, yper)) {
-          drawHoneycomb();
+        let rper = r / canvas.width;
+        if (
+          shouldRender(xper + rper, yper + rper) &&
+          shouldRender(xper + rper, yper - rper) &&
+          shouldRender(xper - rper, yper + rper) &&
+          shouldRender(xper - rper, yper - rper)
+        ) {
+          drawHoneycomb(x, y);
         }
       }
     }

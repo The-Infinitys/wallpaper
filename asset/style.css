@@ -4,7 +4,17 @@
   margin: 0;
   font-family: sans-serif;
 }
+:root {
+  --bg: #fff;
+  --fg: #000;
+}
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000;
+    --fg: #fff;
+  }
+}
 button {
   opacity: 0;
   transition: opacity 5s;
@@ -43,8 +53,8 @@ div.content {
   background-color: #888;
 }
 
-div.content>div.dark,
-div.content>div.light {
+div.content > div.dark,
+div.content > div.light {
   position: fixed;
   top: 0;
   left: 0;
@@ -80,23 +90,21 @@ div.content * {
 }
 
 @media (prefers-color-scheme: dark) {
-
-  div.content>div.dark {
+  div.content > div.dark {
     visibility: visible;
   }
 
-  div.content>div.light {
+  div.content > div.light {
     visibility: hidden;
   }
 }
 
 @media (prefers-color-scheme: light) {
-
-  div.content>div.dark {
+  div.content > div.dark {
     visibility: hidden;
   }
 
-  div.content>div.light {
+  div.content > div.light {
     visibility: visible;
   }
 }
