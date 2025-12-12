@@ -9,107 +9,138 @@
     <script defer src="../../asset/script.js"></script>
     <script defer src="./scripts/edge.js"></script>
     <script defer src="./scripts/runner.js"></script>
+    <script defer>
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll("[data-src-base]").forEach((img) => {
+          const baseName = img.getAttribute("data-src-base");
+          img.src = getImagePath(baseName);
+        });
+      });
+    </script>
     <permission type="camera" />
   </head>
 
   <body>
     <div class="content">
-      <img src="./img/rainbow.svg" class="bg" alt="" />
+      <img data-src-base="rainbow.svg" class="bg" alt="" />
       <canvas id="honeycomb" class="bg"></canvas>
-      <svg
-        preserveAspectRatio="none"
-        class="bg"
-        viewBox="0 0 100 100"
-        version="1.1"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-      >
-        <defs>
-          <linearGradient id="lt" x1="0" y1="1" x2="1" y2="0">
-            <stop offset="0" stop-color="var(--bg)" stop-opacity="1" />
-            <stop offset="0.5" stop-color="var(--bg)" stop-opacity="1" />
-            <stop offset="0.8" stop-color="var(--bg)" stop-opacity="0" />
-          </linearGradient>
+      <div class="bg">
+        <svg
+          preserveAspectRatio="none"
+          class="bg"
+          viewBox="0 0 100 100"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <defs>
+            <linearGradient id="lt" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0" stop-color="var(--bg)" stop-opacity="1" />
+              <stop offset="0.5" stop-color="var(--bg)" stop-opacity="1" />
+              <stop offset="0.8" stop-color="var(--bg)" stop-opacity="0" />
+            </linearGradient>
 
-          <linearGradient id="lb" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="var(--bg)" stop-opacity="1" />
-            <stop offset="0.5" stop-color="var(--bg)" stop-opacity="1" />
-            <stop offset="0.8" stop-color="var(--bg)" stop-opacity="0" />
-          </linearGradient>
+            <linearGradient id="lb" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="var(--bg)" stop-opacity="1" />
+              <stop offset="0.5" stop-color="var(--bg)" stop-opacity="1" />
+              <stop offset="0.8" stop-color="var(--bg)" stop-opacity="0" />
+            </linearGradient>
 
-          <linearGradient id="rt" x1="1" y1="1" x2="0" y2="0">
-            <stop offset="0" stop-color="var(--bg)" stop-opacity="1" />
-            <stop offset="0.5" stop-color="var(--bg)" stop-opacity="1" />
-            <stop offset="0.8" stop-color="var(--bg)" stop-opacity="0" />
-          </linearGradient>
+            <linearGradient id="rt" x1="1" y1="1" x2="0" y2="0">
+              <stop offset="0" stop-color="var(--bg)" stop-opacity="1" />
+              <stop offset="0.5" stop-color="var(--bg)" stop-opacity="1" />
+              <stop offset="0.8" stop-color="var(--bg)" stop-opacity="0" />
+            </linearGradient>
 
-          <linearGradient id="rb" x1="1" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="var(--bg)" stop-opacity="1" />
-            <stop offset="0.5" stop-color="var(--bg)" stop-opacity="1" />
-            <stop offset="0.8" stop-color="var(--bg)" stop-opacity="0" />
-          </linearGradient>
-        </defs>
-        <rect
-          x="65"
-          y="0"
-          width="35"
-          height="45"
-          style="stroke: none; fill: url(#lt)"
-        />
-        <rect
-          x="0"
-          y="0"
-          width="60"
-          height="60"
-          style="stroke: none; fill: url(#rt)"
-        />
-        <rect
-          x="0"
-          y="70"
-          width="30"
-          height="30"
-          style="stroke: none; fill: url(#rb)"
-        />
-        <rect
-          x="50"
-          y="55"
-          width="50"
-          height="45"
-          style="stroke: none; fill: url(#lb)"
-        />
-      </svg>
-      <div class="bg glow">
-        <img
-          src="./img/The-Infinite.svg"
-          alt=""
-          class="center"
-          style="filter: blur(128px)"
-        />
-        <img
-          src="./img/The-Infinite.svg"
-          alt=""
-          class="center"
-          style="filter: blur(32px)"
-        />
-        <img
-          src="./img/The-Infinite.svg"
-          alt=""
-          class="center"
-          style="filter: blur(8px)"
-        />
-        <img
-          src="./img/The-Infinite.svg"
-          alt=""
-          class="center"
-          style="filter: blur(2px)"
-        />
-        <img
-          src="./img/The-Infinite.svg"
-          alt=""
-          class="center"
-        />
+            <linearGradient id="rb" x1="1" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="var(--bg)" stop-opacity="1" />
+              <stop offset="0.5" stop-color="var(--bg)" stop-opacity="1" />
+              <stop offset="0.8" stop-color="var(--bg)" stop-opacity="0" />
+            </linearGradient>
+          </defs>
+          <rect
+            x="65"
+            y="0"
+            width="35"
+            height="45"
+            style="stroke: none; fill: url(#lt)"
+          />
+          <rect
+            x="0"
+            y="0"
+            width="60"
+            height="60"
+            style="stroke: none; fill: url(#rt)"
+          />
+          <rect
+            x="0"
+            y="70"
+            width="30"
+            height="30"
+            style="stroke: none; fill: url(#rb)"
+          />
+          <rect
+            x="50"
+            y="55"
+            width="50"
+            height="45"
+            style="stroke: none; fill: url(#lb)"
+          />
+        </svg>
       </div>
       <div id="linearBox" class="bg"></div>
+      <div class="bg glow">
+        <img
+          data-src-base="The-Infinite.svg"
+          alt=""
+          class="center"
+          style="filter: blur(128px) hue-rotate(40deg)"
+        />
+        <img
+          data-src-base="The-Infinite.svg"
+          alt=""
+          class="center"
+          style="filter: blur(64px) hue-rotate(35deg)"
+        />
+        <img
+          data-src-base="The-Infinite.svg"
+          alt=""
+          class="center"
+          style="filter: blur(32px) hue-rotate(30deg)"
+        />
+        <img
+          data-src-base="The-Infinite.svg"
+          alt=""
+          class="center"
+          style="filter: blur(16px) hue-rotate(25deg)"
+        />
+        <img
+          data-src-base="The-Infinite.svg"
+          alt=""
+          class="center"
+          style="filter: blur(8px) hue-rotate(20deg)"
+        />
+        <img
+          data-src-base="The-Infinite.svg"
+          alt=""
+          class="center"
+          style="filter: blur(4px) hue-rotate(15deg)"
+        />
+        <img
+          data-src-base="The-Infinite.svg"
+          alt=""
+          class="center"
+          style="filter: blur(2px) hue-rotate(10deg)"
+        />
+
+        <img
+          data-src-base="The-Infinite.svg"
+          alt=""
+          class="center"
+          style="filter: blur(1px) hue-rotate(5deg)"
+        />
+        <img data-src-base="The-Infinite.svg" alt="" class="center" />
+      </div>
       <svg
         class="right bottom"
         style="margin: 8px"
