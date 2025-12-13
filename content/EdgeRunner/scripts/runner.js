@@ -87,14 +87,14 @@ function animateSvgDom(pathes, color, length, time, id) {
         from="${-length}"
         to="100"
         dur="${time / 1000}s"
-        repeatCount="indefinite"
+        repeatCount="2"
       />
       <animate
         attributeName="y2"
         from="0"
         to="${100 + length}"
         dur="${time / 1000}s"
-        repeatCount="indefinite"
+        repeatCount="2"
       />
       <stop offset="0" stop-color="${color}" stop-opacity="0" />
       <stop offset="0.2" stop-color="${color}" stop-opacity="1" />
@@ -115,7 +115,7 @@ class AnimateLine {
     let powerMin = 5;
     let powerMax = 10;
     let length = 25 + Math.random() * 50;
-    let time = 4000 + Math.random() * 1000;
+    let time = 500 + Math.random() * 500;
     let x = size * Math.random();
     let cy = 0;
     let brightness;
@@ -236,7 +236,7 @@ function main() {
   if (staticMode) {
     static();
   } else {
-    setInterval(animate, 1000);
+    setInterval(animate, 500);
   }
 }
 window.addEventListener("load", (_) => {
