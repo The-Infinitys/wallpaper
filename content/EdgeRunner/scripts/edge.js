@@ -83,8 +83,14 @@ function draw(timestamp) {
   const rootElem = document.documentElement;
   const computedStyle = getComputedStyle(rootElem);
   const backColor = computedStyle.getPropertyValue("--back-color").trim();
-  canvas.width = window.devicePixelRatio * window.innerWidth;
-  canvas.height = window.devicePixelRatio * window.innerHeight;
+  canvas.width =
+    pixel_width != null
+      ? pixel_width
+      : window.devicePixelRatio * window.innerWidth;
+  canvas.height =
+    pixel_height != null
+      ? pixel_height
+      : window.devicePixelRatio * window.innerHeight;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   // 背景を --back-color で塗りつぶす
   ctx.fillStyle = backColor;
