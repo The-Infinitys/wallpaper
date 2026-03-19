@@ -1,0 +1,114 @@
+.content {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* 液体ガラスのカード */
+.glass-card {
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+
+  width: 400px;
+  height: 250px;
+  border-radius: 40px;
+  position: relative;
+
+  /* 液体ガラスの基本質感 */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(30px) saturate(180%) contrast(90%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%) contrast(90%);
+
+  /* 境界線のハイライト（ガラスの厚み） */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2),
+    inset 0 1px 2px rgba(255, 255, 255, 0.4); /* 上端の鋭い光 */
+}
+.glass-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+
+  /* マウス位置に追従する動的な光沢 */
+  background: radial-gradient(
+    circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, 0.25) 0%,
+    transparent 60%
+  );
+
+  mix-blend-mode: overlay;
+  transition: background 0.15s ease-out; /* 追従を少しなめらかに */
+}
+.liquid-glass-card {
+  background: rgba(255, 255, 255, 0.1); /* 非常に薄い白 */
+  backdrop-filter: blur(20px) saturate(180%); /* ぼかしと彩度の強調 */
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2); /* ガラスの厚みを出す境界線 */
+  border-radius: 30px;
+}
+.glass-surface {
+  background-image: radial-gradient(
+      at 0% 0%,
+      rgba(255, 255, 255, 0.15) 0,
+      transparent 50%
+    ),
+    radial-gradient(at 100% 0%, rgba(255, 255, 255, 0.1) 0, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(255, 255, 255, 0.05) 0, transparent 50%);
+}
+.liquid-effect {
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4),
+    /* 上部の鋭い光 */ 0 10px 30px rgba(0, 0, 0, 0.1); /* 柔らかな影 */
+}
+
+/* マウスの位置に合わせてハイライトを動かす */
+.glass-wallpaper {
+  background: radial-gradient(
+    circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, 0.2) 0%,
+    transparent 60%
+  );
+}
+
+.glass-container {
+  width: 300px; /* 壁紙に合わせて調整 */
+  filter: drop-shadow(0 0 15px rgba(85, 85, 255, 0.3)); /* 外側の淡い光 */
+}
+
+.liquid-path {
+  /* 液体ガラスの質感を出すためのフィルター重ねがけ */
+  filter: 
+    drop-shadow(0 0 2px rgba(255, 255, 255, 0.8)) /* エッジの鋭い光 */
+    blur(0.5px); /* わずかに質感をなじませる */
+  
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 0;
+  
+  /* CSS変数を光沢の位置に使用 */
+  --specular-gradient: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+    var(--fg) 0%, 
+    transparent 20%
+  );
+}
+
+/* マウス位置に合わせて動く「反射」をシミュレート */
+.liquid-svg {
+  /* SVG全体に光沢をオーバーレイ */
+  background-image: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+    rgba(255, 255, 255, 0.4) 0%, 
+    transparent 50%
+  );
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+.logo{
+  width:min(80vw,10000px);
+  height:auto;
+}
