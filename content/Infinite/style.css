@@ -1,9 +1,8 @@
-
-div.content>div.dark {
+div.content > div.dark {
   background: radial-gradient(circle at top left, #555 0%, #000 70%);
 }
 
-div.content>div.light {
+div.content > div.light {
   background: radial-gradient(circle at top left, #aaa 0%, #fff 70%);
 }
 

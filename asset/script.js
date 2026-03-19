@@ -6,9 +6,8 @@ const content = document.querySelector("div.content");
 
 // 1. set_ratio 関数を外部で定義（再利用するため）
 const set_ratio = (ratio) => {
-  
   // 渡されたratioを、コンテンツの目標アスペクト比としてaspect_ratioに設定
-  aspect_ratio = ratio; 
+  aspect_ratio = ratio;
 
   let content_width;
   let content_height;
@@ -30,7 +29,6 @@ const set_ratio = (ratio) => {
   // devicePixelRatioを乗算して物理ピクセル値に変換し、グローバル変数に設定
   pixel_width = content_width * devicePixelRatio;
   pixel_height = content_height * devicePixelRatio;
-  
 };
 
 // 2. デバウンス関数を定義 (変更なし)
@@ -47,18 +45,17 @@ const debounce = (func, delay) => {
 if (params.has("embed")) {
   if (params.has("ratio")) {
     const ratio = parseFloat(params.get("ratio"));
-    
+
     // 初回実行: set_ratio内でグローバル変数が更新される
     set_ratio(ratio);
 
     // リサイズイベントにデバウンスを適用して処理を追加
-    const debouncedSetRatio = debounce(() => set_ratio(ratio), 100); 
+    const debouncedSetRatio = debounce(() => set_ratio(ratio), 100);
     window.addEventListener("resize", debouncedSetRatio);
-
   } else {
     // ratioがない場合 (embed = 全画面表示を意図)
     content.style = `width:100%;height:100%;opacity:1;`;
-    
+
     // 全画面表示なので、ビューポート全体の値で更新
     pixel_width = innerWidth * devicePixelRatio;
     pixel_height = innerHeight * devicePixelRatio;
@@ -79,7 +76,7 @@ if (params.has("embed")) {
         pixel_height = innerHeight * devicePixelRatio;
         aspect_ratio = pixel_width / pixel_height;
         alert(
-          `Complete! Unmaximize Screen!\nScreen Size: ${pixel_width.toString()}, ${pixel_height.toString()}`
+          `Complete! Unmaximize Screen!\nScreen Size: ${pixel_width.toString()}, ${pixel_height.toString()}`,
         );
       });
   });
@@ -88,7 +85,7 @@ if (params.has("embed")) {
       setTimeout(() => {
         // フルスクリーン解除時: set_ratio内でグローバル変数が更新される
         // この場合のaspect_ratioは、フルスクリーン解除前のサイズが保持している
-        set_ratio(aspect_ratio); 
+        set_ratio(aspect_ratio);
       }, 1000);
     }
   });

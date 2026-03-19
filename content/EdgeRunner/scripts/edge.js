@@ -30,36 +30,28 @@ function shouldRender(xp, yp) {
   // 直線の方程式: y / left_y_start + x / top_x_start = 1
   // 描画条件: yper / left_y_start + xper / top_x_start < 1 (境界線より外側)
   const isTopLeft =
-    left_y_start > 0 &&
-    top_x_start > 0 &&
-    yper / left_y_start + xper / top_x_start < 1;
+    left_y_start > 0 && top_x_start > 0 && yper / left_y_start + xper / top_x_start < 1;
 
   // 2. 右上隅の判定 (X: (1 - top_x_end, 0), Y: (1, right_y_start) を通る直線)
   // X座標は右から計るため (1 - xper) を使用します。
   // 直線の方程式: y / right_y_start + (1 - x) / top_x_end = 1
   // 描画条件: yper / right_y_start + (1 - xper) / top_x_end < 1
   const isTopRight =
-    right_y_start > 0 &&
-    top_x_end > 0 &&
-    yper / right_y_start + (1 - xper) / top_x_end < 1;
+    right_y_start > 0 && top_x_end > 0 && yper / right_y_start + (1 - xper) / top_x_end < 1;
 
   // 3. 左下隅の判定 (X: (bottom_x_start, 1), Y: (0, 1 - left_y_end) を通る直線)
   // Y座標は下から計るため (1 - yper) を使用します。
   // 直線の方程式: (1 - y) / left_y_end + x / bottom_x_start = 1
   // 描画条件: (1 - yper) / left_y_end + xper / bottom_x_start < 1
   const isBottomLeft =
-    left_y_end > 0 &&
-    bottom_x_start > 0 &&
-    (1 - yper) / left_y_end + xper / bottom_x_start < 1;
+    left_y_end > 0 && bottom_x_start > 0 && (1 - yper) / left_y_end + xper / bottom_x_start < 1;
 
   // 4. 右下隅の判定 (X: (1 - bottom_x_end, 1), Y: (1, 1 - right_y_end) を通る直線)
   // X, Y座標ともに逆転させた値を使用します。
   // 直線の方程式: (1 - y) / right_y_end + (1 - x) / bottom_x_end = 1
   // 描画条件: (1 - yper) / right_y_end + (1 - xper) / bottom_x_end < 1
   const isBottomRight =
-    right_y_end > 0 &&
-    bottom_x_end > 0 &&
-    (1 - yper) / right_y_end + (1 - xper) / bottom_x_end < 1;
+    right_y_end > 0 && bottom_x_end > 0 && (1 - yper) / right_y_end + (1 - xper) / bottom_x_end < 1;
 
   // いずれかの隅の条件を満たせば描画
   return isTopLeft || isTopRight || isBottomLeft || isBottomRight;
@@ -83,14 +75,9 @@ function draw(timestamp) {
   const rootElem = document.documentElement;
   const computedStyle = getComputedStyle(rootElem);
   const backColor = computedStyle.getPropertyValue("--back-color").trim();
-  canvas.width =
-    pixel_width != null
-      ? pixel_width
-      : window.devicePixelRatio * window.innerWidth;
+  canvas.width = pixel_width != null ? pixel_width : window.devicePixelRatio * window.innerWidth;
   canvas.height =
-    pixel_height != null
-      ? pixel_height
-      : window.devicePixelRatio * window.innerHeight;
+    pixel_height != null ? pixel_height : window.devicePixelRatio * window.innerHeight;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   // 背景を --back-color で塗りつぶす
   ctx.fillStyle = backColor;
@@ -120,20 +107,13 @@ function draw(timestamp) {
   };
 
   // パターンをキャンバス全体に描画
-  for (
-    let canvas_y = -2;
-    (canvas_y - 2) * honeycomb_height < canvas.height;
-    canvas_y++
-  ) {
+  for (let canvas_y = -2; (canvas_y - 2) * honeycomb_height < canvas.height; canvas_y++) {
     for (
       let canvas_x = -2;
-      (canvas_x - 2) * honeycomb_width + shift[canvas_y % shift.length] <
-      canvas.width;
+      (canvas_x - 2) * honeycomb_width + shift[canvas_y % shift.length] < canvas.width;
       canvas_x++
     ) {
-      let x =
-        (canvas_x + 1 * movements) * honeycomb_width +
-        shift[canvas_y % shift.length];
+      let x = (canvas_x + 1 * movements) * honeycomb_width + shift[canvas_y % shift.length];
       let y = (canvas_y - 2 * movements) * honeycomb_height;
       let xper = x / canvas.width;
       let yper = y / canvas.height;

@@ -1,0 +1,7 @@
+#xross-infinite {
+  width: 50vm;
+  height: 50vm;
+}
+img.bg {
+  object-fit: fill;
+}

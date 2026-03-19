@@ -1,16 +1,54 @@
 <!doctype html>
 <html lang="ja">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>The Infinity&apos;s WallPaper - Paradigm Shift</title>
-        <link rel="stylesheet" href="./style.css" />
-        <link rel="stylesheet" href="../../asset/style.css" />
-        <script defer src="../../asset/script.js"></script>
-        <permission type="camera" />
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Infinity&apos;s WallPaper - Paradigm Shift</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="../../asset/style.css" />
+    <script defer src="../../asset/script.js"></script>
+    <script defer src="./script.js"></script>
+    <permission type="camera" />
+  </head>
 
-    <body>
-        <div class="content"></div>
-    </body>
+  <body>
+    <div class="content">
+      <div class="dark"></div>
+      <div class="light"></div>
+      <div class="bg">
+        <canvas id="pcbCanvas" class="bg"></canvas>
+        <svg
+          id="xross-infinite"
+          class="center"
+          viewBox="0 0 100 100"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <path
+            d="
+            M45 45
+            l-5 -5
+            h-15
+            l-5 5
+            v10
+            l5 5
+            h15
+            l 20 -20
+            h15
+            l5 5
+            v10
+            l-5 5
+            h-15
+            l-5 -5
+            "
+            fill="none"
+            stroke="var(--fg)"
+            stroke-width="5"
+            line-cap=""
+          />
+        </svg>
+      </div>
+    </div>
+  </body>
 </html>

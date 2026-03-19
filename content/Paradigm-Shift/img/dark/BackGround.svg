@@ -1,0 +1,36 @@
+<svg
+    preserveAspectRatio="none"
+    width="100"
+    height="100"
+    viewbox="0 0 100 100"
+    version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <rect width="100" height="100" fill="#000" />
+    <g stroke="#fff" fill="none" stroke-width="0.5">
+        <path
+            d="M0 2 h10 l10 10 h10 M0 6 h10 l10 10 h10 M0 10 h10 l10 10 h10"
+        />
+        <path
+            d="M0 60 h15 l10 10 v10 h5 M0 64 h12 l10 10 v10 h5 M0 68 h18 l10 10 v10 h5"
+        />
+
+        <path
+            d="M100 20 h-10 l-10 10 h-10 M100 24 h-13 l-10 10 h-10 M100 28 h-16 l-10 10 h-10"
+        />
+        <path
+            d="M100 80 h-15 l-10 -10 h-10 M100 84 h-18 l-10 -10 h-10 M100 88 h-21 l-10 -10 h-10"
+        />
+    </g>
+
+    <g fill="#fff">
+        <rect x="30" y="11.5" width="2" height="1" />
+        <rect x="30" y="15.5" width="2" height="1" />
+        <rect x="30" y="19.5" width="2" height="1" />
+        <rect x="30" y="79.5" width="2" height="1" />
+        <rect x="30" y="83.5" width="2" height="1" />
+        <rect x="68" y="29.5" width="2" height="1" />
+        <rect x="63" y="69.5" width="2" height="1" />
+        <rect x="63" y="73.5" width="2" height="1" />
+    </g>
+</svg>

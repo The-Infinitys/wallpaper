@@ -25,7 +25,8 @@
 
   /* 境界線のハイライト（ガラスの厚み） */
   border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2),
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.2),
     inset 0 1px 2px rgba(255, 255, 255, 0.4); /* 上端の鋭い光 */
 }
 .glass-card::before {
@@ -53,16 +54,14 @@
   border-radius: 30px;
 }
 .glass-surface {
-  background-image: radial-gradient(
-      at 0% 0%,
-      rgba(255, 255, 255, 0.15) 0,
-      transparent 50%
-    ),
+  background-image:
+    radial-gradient(at 0% 0%, rgba(255, 255, 255, 0.15) 0, transparent 50%),
     radial-gradient(at 100% 0%, rgba(255, 255, 255, 0.1) 0, transparent 50%),
     radial-gradient(at 50% 100%, rgba(255, 255, 255, 0.05) 0, transparent 50%);
 }
 .liquid-effect {
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4),
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.4),
     /* 上部の鋭い光 */ 0 10px 30px rgba(0, 0, 0, 0.1); /* 柔らかな影 */
 }
 
@@ -82,17 +81,15 @@
 
 .liquid-path {
   /* 液体ガラスの質感を出すためのフィルター重ねがけ */
-  filter: 
-    drop-shadow(0 0 2px rgba(255, 255, 255, 0.8)) /* エッジの鋭い光 */
-    blur(0.5px); /* わずかに質感をなじませる */
-  
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.8)) /* エッジの鋭い光 */ blur(0.5px); /* わずかに質感をなじませる */
+
   stroke-dasharray: 1000;
   stroke-dashoffset: 0;
-  
+
   /* CSS変数を光沢の位置に使用 */
   --specular-gradient: radial-gradient(
-    circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-    var(--fg) 0%, 
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    var(--fg) 0%,
     transparent 20%
   );
 }
@@ -101,14 +98,14 @@
 .liquid-svg {
   /* SVG全体に光沢をオーバーレイ */
   background-image: radial-gradient(
-    circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-    rgba(255, 255, 255, 0.4) 0%, 
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.4) 0%,
     transparent 50%
   );
   mix-blend-mode: screen;
   pointer-events: none;
 }
-.logo{
-  width:min(80vw,10000px);
-  height:auto;
+.logo {
+  width: min(80vw, 10000px);
+  height: auto;
 }
