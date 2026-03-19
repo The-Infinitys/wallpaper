@@ -1,54 +1,147 @@
 <!doctype html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Infinity&apos;s WallPaper - Paradigm Shift</title>
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="../../asset/style.css" />
-    <script defer src="../../asset/script.js"></script>
-    <script defer src="./script.js"></script>
-    <permission type="camera" />
-  </head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>The Infinity&apos;s WallPaper - Paradigm Shift</title>
+        <link rel="stylesheet" href="./style.css" />
+        <link rel="stylesheet" href="../../asset/style.css" />
+        <script defer src="../../asset/script.js"></script>
+        <script defer src="./script.js"></script>
+        <permission type="camera" />
+    </head>
 
-  <body>
-    <div class="content">
-      <div class="dark"></div>
-      <div class="light"></div>
-      <div class="bg">
-        <canvas id="pcbCanvas" class="bg"></canvas>
-        <svg
-          id="xross-infinite"
-          class="center"
-          viewBox="0 0 100 100"
-          version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-        >
-          <path
-            d="
-            M45 45
-            l-5 -5
-            h-15
-            l-5 5
-            v10
-            l5 5
-            h15
-            l 20 -20
-            h15
-            l5 5
-            v10
-            l-5 5
-            h-15
-            l-5 -5
-            "
-            fill="none"
-            stroke="var(--fg)"
-            stroke-width="5"
-            line-cap=""
-          />
-        </svg>
-      </div>
-    </div>
-  </body>
+    <body>
+        <div class="content">
+            <div class="dark"></div>
+            <div class="light"></div>
+            <div class="bg">
+                <canvas id="pcbCanvas" class="bg"></canvas>
+                <svg
+                    id="xross-infinite"
+                    class="center"
+                    viewBox="0 0 100 100"
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                    <defs>
+                        <filter id="glitch-filter">
+                            <!-- 各色の抽出と移動 -->
+                            <!-- Red: 左上 -->
+                            <feFlood flood-color="red" result="f-red" />
+                            <feComposite
+                                in="f-red"
+                                in2="SourceGraphic"
+                                operator="in"
+                            />
+                            <feOffset dx="-2" dy="-1" result="r" />
+
+                            <!-- Green: 右下 -->
+                            <feFlood flood-color="#0f0" result="f-green" />
+                            <feComposite
+                                in="f-green"
+                                in2="SourceGraphic"
+                                operator="in"
+                            />
+                            <feOffset dx="2" dy="1" result="g" />
+
+                            <!-- Blue: 左下 -->
+                            <feFlood flood-color="blue" result="f-blue" />
+                            <feComposite
+                                in="f-blue"
+                                in2="SourceGraphic"
+                                operator="in"
+                            />
+                            <feOffset dx="-2" dy="1" result="b" />
+
+                            <!-- Cyan: 右上 -->
+                            <feFlood flood-color="cyan" result="f-cyan" />
+                            <feComposite
+                                in="f-cyan"
+                                in2="SourceGraphic"
+                                operator="in"
+                            />
+                            <feOffset dx="2" dy="-1" result="c" />
+
+                            <!-- Magenta: 上 -->
+                            <feFlood flood-color="magenta" result="f-mag" />
+                            <feComposite
+                                in="f-mag"
+                                in2="SourceGraphic"
+                                operator="in"
+                            />
+                            <feOffset dx="0" dy="-2.23" result="m" />
+
+                            <!-- Yellow: 下 -->
+                            <feFlood flood-color="yellow" result="f-yel" />
+                            <feComposite
+                                in="f-yel"
+                                in2="SourceGraphic"
+                                operator="in"
+                            />
+                            <feOffset dx="0" dy="2.23" result="y" />
+
+                            <!-- 全色を「スクリーン」で合成 -->
+                            <feBlend in="r" in2="g" mode="screen" result="rg" />
+                            <feBlend
+                                in="rg"
+                                in2="b"
+                                mode="screen"
+                                result="rgb"
+                            />
+                            <feBlend
+                                in="rgb"
+                                in2="c"
+                                mode="screen"
+                                result="rgbc"
+                            />
+                            <feBlend
+                                in="rgbc"
+                                in2="m"
+                                mode="screen"
+                                result="rgbcm"
+                            />
+                            <feBlend
+                                in="rgbcm"
+                                in2="y"
+                                mode="screen"
+                                result="final"
+                            />
+
+                            <!-- 元の画像（白黒/明暗）と少し混ぜてディテールを維持 -->
+                            <feBlend
+                                in="final"
+                                in2="SourceGraphic"
+                                mode="screen"
+                            />
+                        </filter>
+                    </defs>
+                    <path
+                        d="
+                        M45 45
+                        l-5 -5
+                        h-15
+                        l-5 5
+                        v10
+                        l5 5
+                        h15
+                        l 20 -20
+                        h15
+                        l5 5
+                        v10
+                        l-5 5
+                        h-15
+                        l-5 -5
+                        "
+                        fill="none"
+                        stroke="#010101"
+                        filter="url(#glitch-filter)"
+                        stroke-width="4"
+                        line-cap=""
+                    />
+                </svg>
+            </div>
+        </div>
+    </body>
 </html>
