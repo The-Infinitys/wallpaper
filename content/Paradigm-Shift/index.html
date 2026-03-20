@@ -54,34 +54,6 @@
                                 operator="in"
                             />
                             <feOffset dx="-2" dy="1" result="b" />
-
-                            <!-- Cyan: 右上 -->
-                            <feFlood flood-color="cyan" result="f-cyan" />
-                            <feComposite
-                                in="f-cyan"
-                                in2="SourceGraphic"
-                                operator="in"
-                            />
-                            <feOffset dx="2" dy="-1" result="c" />
-
-                            <!-- Magenta: 上 -->
-                            <feFlood flood-color="magenta" result="f-mag" />
-                            <feComposite
-                                in="f-mag"
-                                in2="SourceGraphic"
-                                operator="in"
-                            />
-                            <feOffset dx="0" dy="-2.23" result="m" />
-
-                            <!-- Yellow: 下 -->
-                            <feFlood flood-color="yellow" result="f-yel" />
-                            <feComposite
-                                in="f-yel"
-                                in2="SourceGraphic"
-                                operator="in"
-                            />
-                            <feOffset dx="0" dy="2.23" result="y" />
-
                             <!-- 全色を「スクリーン」で合成 -->
                             <feBlend in="r" in2="g" mode="screen" result="rg" />
                             <feBlend
