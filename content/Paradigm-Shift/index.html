@@ -35,7 +35,7 @@
                                 in2="SourceGraphic"
                                 operator="in"
                             />
-                            <feOffset dx="-2" dy="-1" result="r" />
+                            <feOffset dx="0" dy="-2.23" result="r" />
 
                             <!-- Green: 右下 -->
                             <feFlood flood-color="#0f0" result="f-green" />
@@ -54,7 +54,7 @@
                                 operator="in"
                             />
                             <feOffset dx="-2" dy="1" result="b" />
-                            <!-- 全色を「スクリーン」で合成 -->
+
                             <feBlend in="r" in2="g" mode="screen" result="rg" />
                             <feBlend
                                 in="rg"
@@ -64,26 +64,6 @@
                             />
                             <feBlend
                                 in="rgb"
-                                in2="c"
-                                mode="screen"
-                                result="rgbc"
-                            />
-                            <feBlend
-                                in="rgbc"
-                                in2="m"
-                                mode="screen"
-                                result="rgbcm"
-                            />
-                            <feBlend
-                                in="rgbcm"
-                                in2="y"
-                                mode="screen"
-                                result="final"
-                            />
-
-                            <!-- 元の画像（白黒/明暗）と少し混ぜてディテールを維持 -->
-                            <feBlend
-                                in="final"
                                 in2="SourceGraphic"
                                 mode="screen"
                             />
@@ -107,7 +87,7 @@
                         l-5 -5
                         "
                         fill="none"
-                        stroke="#010101"
+                        stroke="#888"
                         filter="url(#glitch-filter)"
                         stroke-width="4"
                         line-cap=""
