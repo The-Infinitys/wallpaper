@@ -4,43 +4,44 @@
 
   function draw() {
     const pixelRatio = window.devicePixelRatio || 1;
-    canvas.width = window.innerWidth * pixelRatio;
-    canvas.height = window.innerHeight * pixelRatio;
+    const rawW = window.innerWidth;
+    const rawH = window.innerHeight;
+    canvas.width = rawW * pixelRatio;
+    canvas.height = rawH * pixelRatio;
 
     const w = canvas.width;
     const h = canvas.height;
 
-    ctx.clearRect(0, 0, w, h);
+    function renderSet(wRef, hRef, drawThinLine = true) {
+      const margin = hRef * 0.05;
+      const yBottom = hRef;
+      const yTop = hRef - margin * 3;
+      const yMid = hRef - margin * 2;
+      const xBend = yBottom - yTop;
 
-    const grad = ctx.createLinearGradient(0, 0, w, 0);
-    grad.addColorStop(0, "#f00");
-    grad.addColorStop(0.2, "#ff0");
-    grad.addColorStop(0.4, "#0f0");
-    grad.addColorStop(0.6, "#0ff");
-    grad.addColorStop(0.8, "#00f");
-    grad.addColorStop(1, "#f0f");
+      const boldWidth = 24 * pixelRatio; // 少し太く
+      const thinWidth = 4 * pixelRatio;
+      const neonCoreWidth = 2 * pixelRatio; // ネオンの芯（白）
 
-    const margin = h * 0.05;
-    const yBottom = h;
-    const yTop = h - margin * 3;
-    const yMid = h - margin * 2;
-    const xBend = yBottom - yTop;
+      // --- 修正箇所：ネオンカラーのグラデーション ---
+      const grad = ctx.createLinearGradient(0, 0, wRef, 0);
+      grad.addColorStop(0, "#FF0055"); // 鮮やかなネオンピンク
+      grad.addColorStop(0.25, "#FFDD00"); // ネオンイエロー
+      grad.addColorStop(0.5, "#00FFDD"); // ネオンシアン
+      grad.addColorStop(0.75, "#0055FF"); // ネオンブルー
+      grad.addColorStop(1, "#FF00FF"); // ネオンマゼンタ
 
-    const boldWidth = 20 * pixelRatio;
-    const thinWidth = 4 * pixelRatio;
-    const halfBold = boldWidth / 2;
-
-    function renderSet() {
-      // --- パスの作成 ---
+      // パス定義（boldPath, thinPath）は変更なし
       const boldPath = new Path2D();
+      const halfBold = boldWidth / 2;
       boldPath.moveTo(0, yBottom + halfBold);
       boldPath.lineTo(0, yBottom - halfBold);
       boldPath.lineTo(xBend, yTop - halfBold);
       const transitionLength = thinWidth;
       boldPath.lineTo(xBend + thinWidth, yTop - halfBold);
       boldPath.lineTo(xBend + thinWidth + transitionLength, yTop - halfBold);
-      boldPath.lineTo(w, yTop - halfBold);
-      boldPath.lineTo(w, yTop - halfBold + thinWidth);
+      boldPath.lineTo(wRef, yTop - halfBold);
+      boldPath.lineTo(wRef, yTop - halfBold + thinWidth);
       boldPath.lineTo(
         xBend + boldWidth + transitionLength,
         yTop - halfBold + thinWidth,
@@ -52,42 +53,77 @@
 
       const thinPath = new Path2D();
       thinPath.moveTo(0, yMid);
-      thinPath.lineTo(w, yMid);
+      thinPath.lineTo(wRef, yMid);
 
-      // --- 描画設定（発光） ---
       ctx.save();
+      // 光を重ねる合成モード
       ctx.globalCompositeOperation = "screen";
 
-      // 本体の色
+      // --- 1. 広範囲の淡いグロー ---
+      ctx.shadowBlur = 50 * pixelRatio;
+      ctx.shadowColor = grad; // 影の色をグラデーションに
       ctx.fillStyle = grad;
       ctx.strokeStyle = grad;
       ctx.lineWidth = thinWidth;
-
-      // 1. 発光の暈 (Shadow)
-      ctx.shadowBlur = 15 * pixelRatio;
-      ctx.shadowColor = "white"; // 白い光を混ぜると発光感が強まります
-
-      // 2. 本体の描画
       ctx.fill(boldPath);
-      ctx.stroke(thinPath);
+      if (drawThinLine) ctx.stroke(thinPath);
 
-      // 3. 重ねて光を強調 (さらに太い線で淡く)
-      ctx.shadowBlur = 30 * pixelRatio;
-      ctx.globalAlpha = 0.3;
-      ctx.stroke(thinPath);
+      // --- 2. 中範囲の強いグロー ---
+      ctx.shadowBlur = 20 * pixelRatio;
+      ctx.shadowColor = "white"; // 白い光を混ぜる
+      ctx.globalAlpha = 0.5; // 少し透明に
       ctx.fill(boldPath);
+      if (drawThinLine) ctx.stroke(thinPath);
+
+      // --- 3. ネオンの芯（真っ白な細い線）を描画 ---
+      ctx.save();
+      ctx.globalAlpha = 1.0;
+      ctx.shadowBlur = 5 * pixelRatio; // 芯のすぐ周りの光
+      ctx.shadowColor = "white";
+      ctx.fillStyle = "white"; // 芯は白
+      ctx.strokeStyle = "white";
+      ctx.lineWidth = neonCoreWidth; // 芯の細さ
+      ctx.fill(boldPath);
+      if (drawThinLine) ctx.stroke(thinPath);
+      ctx.restore();
 
       ctx.restore();
     }
 
-    renderSet();
+    // レイアウト判定は変更なし
+    const aspectThreshold = 0.05;
+    const diff = Math.abs(w - h) / Math.max(w, h);
 
-    ctx.save();
-    ctx.translate(w / 2, h / 2);
-    ctx.rotate(Math.PI);
-    ctx.translate(-w / 2, -h / 2);
-    renderSet();
-    ctx.restore();
+    if (diff < aspectThreshold) {
+      for (let i = 0; i < 4; i++) {
+        ctx.save();
+        ctx.translate(w / 2, h / 2);
+        ctx.rotate((Math.PI / 2) * i);
+        ctx.translate(-w / 2, -h / 2);
+        renderSet(w, h, false);
+        ctx.restore();
+      }
+    } else if (h > w) {
+      ctx.save();
+      ctx.translate(w / 2, h / 2);
+      ctx.rotate(Math.PI / 2);
+      ctx.translate(-h / 2, -w / 2);
+      renderSet(h, w, true);
+
+      ctx.translate(h / 2, w / 2);
+      ctx.rotate(Math.PI);
+      ctx.translate(-h / 2, -w / 2);
+      renderSet(h, w, true);
+      ctx.restore();
+    } else {
+      renderSet(w, h, true);
+      ctx.save();
+      ctx.translate(w / 2, h / 2);
+      ctx.rotate(Math.PI);
+      ctx.translate(-w / 2, -h / 2);
+      renderSet(w, h, true);
+      ctx.restore();
+    }
   }
 
   window.addEventListener("resize", draw);
