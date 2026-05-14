@@ -2,6 +2,7 @@
   const canvas = document.getElementById("gradientCanvas");
   const ctx = canvas.getContext("2d");
 
+  let w, h, cx, cy;
   const ORB_COUNT = 12; // オーブの数（つなぎ目が滑らかになるよう調整）
   const BASE_BG_COLOR = "#010102";
   const SPEED_FACTOR = 0.15; // 背景なので少しゆったり動かす
@@ -20,14 +21,11 @@
   }
 
   function draw() {
-    const pixelRatio = window.devicePixelRatio || 1;
-    if (canvas.width !== window.innerWidth * pixelRatio) {
-      canvas.width = window.innerWidth * pixelRatio;
-      canvas.height = window.innerHeight * pixelRatio;
+    if (!w || !h) {
+      requestAnimationFrame(draw);
+      return;
     }
 
-    const w = canvas.width;
-    const h = canvas.height;
     const center = { x: w / 2, y: h / 2 };
 
     ctx.globalCompositeOperation = "source-over";
@@ -75,11 +73,22 @@
     time += 0.016 * SPEED_FACTOR;
     requestAnimationFrame(draw);
   }
+  function resize() {
+    const dpr = window.devicePixelRatio;
+    const newW = canvas.clientWidth * dpr;
+    const newH = canvas.clientHeight * dpr;
+    if (newW === 0 || newH === 0) return;
 
-  window.addEventListener("resize", () => {
-    canvas.width = window.innerWidth * (window.devicePixelRatio || 1);
-    canvas.height = window.innerHeight * (window.devicePixelRatio || 1);
-  });
+    if (w !== newW || h !== newH) {
+      w = canvas.width = newW;
+      h = canvas.height = newH;
+      cx = w / 2;
+      cy = h / 2;
+    }
+  }
+
+  new ResizeObserver(resize).observe(canvas);
+  resize();
 
   draw();
 })();

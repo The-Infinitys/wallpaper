@@ -75,14 +75,24 @@
   }
 
   function resize() {
-    const dpr = window.devicePixelRatio || 1;
-    w = canvas.width = window.innerWidth * dpr;
-    h = canvas.height = window.innerHeight * dpr;
-    cx = w / 2;
-    cy = h / 2;
+    const dpr = window.devicePixelRatio;
+    const newW = canvas.clientWidth * dpr;
+    const newH = canvas.clientHeight * dpr;
+    if (newW === 0 || newH === 0) return;
+
+    if (w !== newW || h !== newH) {
+      w = canvas.width = newW;
+      h = canvas.height = newH;
+      cx = w / 2;
+      cy = h / 2;
+    }
   }
 
   function render() {
+    if (!w || !h) {
+      requestAnimationFrame(render);
+      return;
+    }
     ctx.clearRect(0, 0, w, h);
     ctx.globalCompositeOperation = "lighter";
 
@@ -95,7 +105,7 @@
     requestAnimationFrame(render);
   }
 
-  window.addEventListener("resize", resize);
+  new ResizeObserver(resize).observe(canvas);
   resize();
   init();
   render();

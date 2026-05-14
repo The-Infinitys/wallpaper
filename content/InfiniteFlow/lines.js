@@ -3,9 +3,11 @@
   const ctx = canvas.getContext("2d");
 
   function draw() {
-    const pixelRatio = window.devicePixelRatio || 1;
-    const rawW = window.innerWidth;
-    const rawH = window.innerHeight;
+    const pixelRatio = window.devicePixelRatio;
+    const rawW = canvas.clientWidth;
+    const rawH = canvas.clientHeight;
+    if (rawW === 0 || rawH === 0) return;
+
     canvas.width = rawW * pixelRatio;
     canvas.height = rawH * pixelRatio;
 
@@ -126,6 +128,8 @@
     }
   }
 
-  window.addEventListener("resize", draw);
+  new ResizeObserver(() => {
+    draw();
+  }).observe(canvas);
   draw();
 })();

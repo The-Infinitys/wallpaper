@@ -119,14 +119,36 @@
   }
 
   function resize() {
-    const dpr = window.devicePixelRatio || 1;
-    w = canvas.width = window.innerWidth * dpr;
-    h = canvas.height = window.innerHeight * dpr;
-    cx = w / 2;
-    cy = h / 2;
+    const dpr = window.devicePixelRatio;
+    const newW = canvas.clientWidth * dpr;
+    const newH = canvas.clientHeight * dpr;
+    if (newW === 0 || newH === 0) return;
+
+    if (w !== newW || h !== newH) {
+      w = canvas.width = newW;
+      h = canvas.height = newH;
+      cx = w / 2;
+      cy = h / 2;
+
+      if (objects.length === 0) {
+        for (let i = 0; i < OBJ_COUNT; i++) {
+          objects.push(new Polyhedron(i));
+        }
+      } else {
+        // すでにオブジェクトがある場合は、新しいサイズに合わせて再配置（オプション）
+        // ここでは初回のみ初期化を確実にする
+        objects.forEach((obj) => {
+          if (obj.size === 0) obj.init(true);
+        });
+      }
+    }
   }
 
   function render() {
+    if (!w || !h) {
+      requestAnimationFrame(render);
+      return;
+    }
     ctx.clearRect(0, 0, w, h);
 
     // 加算合成を有効にして、背景が暗くても色が死なないようにする
@@ -140,13 +162,8 @@
     requestAnimationFrame(render);
   }
 
-  window.addEventListener("resize", resize);
+  new ResizeObserver(resize).observe(canvas);
   resize();
-
-  objects = [];
-  for (let i = 0; i < OBJ_COUNT; i++) {
-    objects.push(new Polyhedron(i));
-  }
 
   render();
 })();
