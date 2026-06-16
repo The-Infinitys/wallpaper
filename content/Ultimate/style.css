@@ -1,0 +1,26 @@
+div.content {
+    background-color: #000;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 1. 【ダーク・インク】背景の光にSVGでうねりを加える */
+.background {
+    width: 120vmax; /* 歪みで端が切れないよう少し拡大 */
+    height: 120vmax;
+    filter: blur(8vmin);
+    opacity: 0.1; /* 濃さを出すために少しアップ */
+    z-index: 1;
+}
+
+/* 3. 【中心ロゴ】最前面にカチッと配置 */
+.logo {
+    position: relative;
+    width: 100vmin;
+    height: 100vmin;
+    opacity: 0.65; /* クッキリ感を出すために少しアップ */
+    z-index: 3;
+    pointer-events: none;
+}
