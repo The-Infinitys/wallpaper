@@ -41,27 +41,19 @@
             cx="50%"
             cy="50%"
             r="60%"
-            fx="45%"
-            fy="45%"
+            fx="50%"
+            fy="50%"
         >
             <stop offset="0%" stop-color="#ffffff" />
-            <!-- 針の先のように鋭く、最も奥まった中心の超閃光（面積はごくわずか） -->
             <stop offset="3%" stop-color="#777777" />
-            <!-- 眩しさを防ぐため、一瞬でグレーへ急降下させる（目に痛くない処理） -->
             <stop offset="8%" stop-color="#0a0a0a" />
-            <!-- ここから早くも深い闇へ突入し、重厚感を出す -->
             <stop offset="35%" stop-color="#000000" />
-            <!-- ロゴの大部分を占める、光を吸い込む絶対的な漆黒 -->
             <stop offset="65%" stop-color="#3a3a3a" />
-            <!-- 輪郭（エッジ）をヌルッと鈍く浮き上がらせる金属の照り返し -->
             <stop offset="80%" stop-color="#050505" />
-            <!-- 再び闇へと沈み込む階調 -->
             <stop offset="100%" stop-color="#000000" />
-            <!-- 背景に溶け込む最外周の闇 -->
         </radialGradient>
 
         <filter id="metal_edge" x="-10%" y="-10%" width="120%" height="120%">
-            <!-- 元のロゴを少しだけ内側に削った影を作る -->
             <feOffset dx="1" dy="1" />
             <feGaussianBlur stdDeviation="1.2" result="offset-blur" />
             <feComposite
