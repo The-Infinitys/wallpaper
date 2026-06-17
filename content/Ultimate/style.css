@@ -11,7 +11,7 @@ div.content {
     width: 120vmax; /* 歪みで端が切れないよう少し拡大 */
     height: 120vmax;
     filter: blur(8vmin);
-    opacity: 0.1; /* 濃さを出すために少しアップ */
+    opacity: 0.2; /* 濃さを出すために少しアップ */
     z-index: 1;
 }
 
